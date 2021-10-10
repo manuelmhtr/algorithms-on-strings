@@ -33,15 +33,3 @@ class Trie:
     def add_edge(self, from_node, to_node, label):
         self.tree[from_node] = self.tree.get(from_node, {})
         self.tree[from_node][label] = to_node
-
-def build_trie(patterns):
-    trie = Trie()
-    trie.add_patterns(patterns)
-    return trie.tree
-
-if __name__ == '__main__':
-    patterns = sys.stdin.read().split()[1:]
-    tree = build_trie(patterns)
-    for node in tree:
-        for c in tree[node]:
-            print("{}->{}:{}".format(node, tree[node][c], c))
